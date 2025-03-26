@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--    STEP 1-->
+    <!--   To perform constructor injection we must have constructor in classes then we create bean here-->
+    <!--    STEP 2-->
+    <!--   Use bean tag to create a bean, then we have to inject values to inject values
+           we are using "constructor-arg" tag and iside that use "value" tag
+           as per the constructor line we provide the value -->
+
+    <!-- N O T E  =   if I have 'int' followed by 'string'  as constructor and i give
+                    'String' value then give 'int' then it can be understanble to spring it can adjust for some cases-->
+
+<!-- Cause Exception (insufficient args) : Initial Practice - Injecting only with two values -->
+<!--    <bean class="com.spring.constructorInjection.Person" name="person10">-->
+<!--        <constructor-arg>-->
+<!--            <value>Rohit Sharma</value>-->
+<!--        </constructor-arg>-->
+<!--        <constructor-arg value="45" type="int"/>-->
+<!--    </bean>-->
+
+
+    <!--  if i change the value like first int then string it will work fine it can understand
+           but sometimes what happen we have more than one constructor then to remove ambiguity we write this "type"-->
+
+    <!--    <bean class="com.spring.constructorInjection.Certificate" name="cer"  >-->
+    <!--           <constructor-arg value="Java Certificate" />-->
+    <!--    </bean>-->
+
+    <!--    Using C schema we can write this values -->
+    <bean class="com.spring.constructorInjection.Certificate" id="cer" c:name="Python Certificate"/>
+
+    <bean class="com.spring.constructorInjection.Person" name="person1">
+        <constructor-arg>
+            <value>Rohit Sharma</value>
+        </constructor-arg>
+        <constructor-arg value="45" type="int"/>
+        <constructor-arg ref="cer"/>
+        <constructor-arg>
+            <list>
+                <value>12</value>
+                <value>13</value>
+                <value>14</value>
+                <value>15</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
+<!--    ########### ############# ################### ################# -->
+<!--    Performing Constructor Ambiguity -->
+    <bean class="com.spring.constructorInjection.AmbiguityInCalling" name="addition">
+        <constructor-arg value="12" type="int" />
+        <constructor-arg value="8" index="0"/>
+    </bean>
+
+<!--    Once i Execute the program in main class it will called the "addition" bean
+        here we inject two values with constructor injectin without knowing the datatype
+        It will go the AmbiguityInCalling class and check the Constructor with "String" , "String"
+        because by defalut it always takes string as datatype then other.
+        Naturally it will not found if found then it will inject through that costructor
+        In class i have two constructor with 'double , double' and 'int , int'
+        It will check Upside down if double is first constructor then it will inject value with that
+        To remove ambuiguity use   'type'  attribute
+        Also with help of index (started form 0,1,2..)  we can mention there-->
+
+
+</beans>

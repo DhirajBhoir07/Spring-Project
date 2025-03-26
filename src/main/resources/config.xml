@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    This is my first bean
+        There are 3 ways to setting values for the object -->
+
+
+<!--    1st way to declare by using "TAGs"-->
+    <bean class="com.spring.Student" name ="Student1">
+<!--      Injecting values as tags-->
+        <property name="studentId">
+            <value>1</value>
+        </property>
+
+        <property name="studentName">
+            <value>Dhiraj Bhoir</value>
+        </property>
+
+        <property name="studentAddress">
+            <value>Shahapur</value>
+        </property>
+    </bean>
+
+<!--   2nd Way = Value as attribute to inject values-->
+    <bean class="com.spring.Student" name ="Student2">
+        <property name="studentId" value="2" />
+        <property name="studentName" value="Geeta Bhoir" />
+        <property name="studentAddress" value="Shahapur" />
+    </bean>
+
+<!--   3rd way = by using p schema (after p: use the property name )-->
+    <bean class="com.spring.Student" name="Student3" p:studentId="4" p:studentName="Laila" p:studentAddress="London"/>
+
+
+
+
+
+
+</beans>

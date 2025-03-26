@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    IF I DON'T GIVE 'bikeNo' remove it tottaly from here .. it will give me null-->
+    <bean class="com.spring.beanLifeCycle.Bikes" id="bikebean" p:bikeName="Thunder 360" p:bikeNo="MH O4 007" />
+
+    <bean class="com.spring.beanLifeCycle.LifeCycle" id="lifecycle"
+          p:yourName="mobileBeanlife"
+          p:bike-ref="bikebean"
+          init-method="init"
+          destroy-method="destroy">
+        <!-- List property -->
+        <property name="branches">
+            <list>
+                <value>Mumbai</value>
+                <value>Heydrabad</value>
+                <value>Pune</value>
+            </list>
+        </property>
+        <!-- Map property -->
+        <property name="cities">
+            <map>
+                <entry key="1" value="shahapur" />
+                <entry key="2" value="Vasind" />
+                <entry key="3" value="Titwala" />
+            </map>
+        </property>
+    </bean>
+
+    <bean class="com.spring.beanLifeCycle.LifeCycleThroughInterface"
+          id="lifecycleInterface"
+                p:apple="Apple"/>
+
+    <bean class="com.spring.beanLifeCycle.LifeCycleThroughInterface2"
+          id="lifecycleInterface2"
+          p:brand="Nothing" p:name="Nothing phone2a" p:price="23000"  />
+
+
+
+</beans>

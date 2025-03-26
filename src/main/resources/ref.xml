@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    Step 1-->
+<!--    if i want to add object of class "B" and "C" then i have to declare them before the "A" class -->
+
+<!--    I am using p schema to give value directly in bean tag-->
+    <bean class="com.spring.ref.B" name="Bref" p:y="88"/>
+    <bean class="com.spring.ref.C" name="Cref" p:name="Mumbai" />
+
+<!--    STEP 2-->
+<!--   Declare bean for A , need to give values for the variables and if object ref is there then
+        we have to take it from above declare beans to inject into the "A"-->
+
+<!--    STEP 3  -->
+<!--    To give the reference, Use "ref" tag inside "property" tag-->
+    <bean class="com.spring.ref.A" name="Aref">
+        <property name="x" value="44"/>
+        <property name="ob">
+            <ref bean="Bref" />
+<!--            Here "Bref" is the ref name from B class Bean "-->
+        </property>
+        <property name="cObject" ref="Cref" />
+<!--        Same goes for the C class bean reference-->
+    </bean>
+
+
+<!--    Using p schema  -->
+    <bean class="com.spring.ref.A" name="Aref2" p:x="332" p:ob-ref="Bref" p:cObject-ref="Cref" />
+
+    </beans>
+
+
+<!-- There are so many other attribute we can search inside every tag-->

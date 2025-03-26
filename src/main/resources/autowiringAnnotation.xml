@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--   To enable Annotations we need to write this to enable our @Autowired
+        If we don't write it, we get null instead of the value
+        ex. Employee Address : Emp(address=null)
+        -->
+<!--   <context:annotation-config/>-->
+
+<!--   Bean of Address Class-->
+    <bean class="com.spring.autowired.annotation.Address" name="address">
+        <property name="city" value="Mumbai" />
+        <property name="street" value="Street 22" />
+    </bean>
+
+
+    <!--    Bean of Emp class *** autowiring using 'constructor'-->
+    <bean class="com.spring.autowired.annotation.Emp" name="Emp1"   />
+
+
+
+</beans>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--   Bean of Address Class-->
+    <bean class="com.spring.autowired.Address" name="address">
+        <property name="city" value="Mumbai" />
+        <property name="street" value="Street 22" />
+    </bean>
+
+<!--    <bean class="com.spring.autowired.Address" name="address2">-->
+<!--        <property name="city" value="Pune" />-->
+<!--        <property name="street" value="Street 23" />-->
+<!--    </bean>-->
+
+<!--    Bean of Emp class *** autowiring using 'byName'-->
+<!--    <bean class="com.spring.autowired.Emp" name="Emp"  autowire="byName" />-->
+        <!--    We need Address object . Autowire - byName
+                In this bean It will go to the 'Emp' class since we are using 'byName'
+                it will check do we have any 'address' name bean (ref of Address variable)
+                inside the configuratin file,
+                Yes we have. Then, It will inject its object inside 'Emp'
+                    * If 'Address' class bean is mismatch then it will give 'Emp(address=null)' -->
+
+
+    <!--    Bean of Emp class *** autowiring using 'byName'-->
+<!--    <bean class="com.spring.autowired.Emp" name="Emp2"  autowire="byType" />-->
+        <!--   In 'byType' of autowiring whatever the type of object we needed
+               here we needed the 'Address' class object so 'byType' will check any bean
+               which is type of 'Address' if found it will inject it.
+                    ** But if there are more than one bean of same type then it will give
+                       NoUniqueBeanDefinitionExceptionBean Exception -->
+
+    <!--    Bean of Emp class *** autowiring using 'constructor'-->
+    <bean class="com.spring.autowired.Emp" name="Emp3"  autowire="constructor" />
+
+
+
+</beans>
