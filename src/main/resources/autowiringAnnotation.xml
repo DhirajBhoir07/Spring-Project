@@ -13,7 +13,7 @@
         If we don't write it, we get null instead of the value
         ex. Employee Address : Emp(address=null)
         -->
-<!--   <context:annotation-config/>-->
+   <context:annotation-config/>
 
 <!--   Bean of Address Class-->
     <bean class="com.spring.autowired.annotation.Address" name="address">

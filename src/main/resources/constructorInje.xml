@@ -11,7 +11,7 @@
            http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--    STEP 1-->
-    <!--   To perform constructor injection we must have constructor in classes then we create bean here-->
+    <!--   To perform constructor injection we must have All argument constructor for that classes then we create bean here-->
     <!--    STEP 2-->
     <!--   Use bean tag to create a bean, then we have to inject values to inject values
            we are using "constructor-arg" tag and iside that use "value" tag
@@ -20,7 +20,7 @@
     <!-- N O T E  =   if I have 'int' followed by 'string'  as constructor and i give
                     'String' value then give 'int' then it can be understanble to spring it can adjust for some cases-->
 
-<!-- Cause Exception (insufficient args) : Initial Practice - Injecting only with two values -->
+<!-- If run cause Exception (insufficient args) : Initial Practice - Injecting only with two values -->
 <!--    <bean class="com.spring.constructorInjection.Person" name="person10">-->
 <!--        <constructor-arg>-->
 <!--            <value>Rohit Sharma</value>-->
@@ -58,12 +58,14 @@
 <!--    ########### ############# ################### ################# -->
 <!--    Performing Constructor Ambiguity -->
     <bean class="com.spring.constructorInjection.AmbiguityInCalling" name="addition">
-        <constructor-arg value="12" type="int" />
+<!--        <constructor-arg value="12" type="int" />-->
+        <constructor-arg value="12"  />
         <constructor-arg value="8" index="0"/>
+
     </bean>
 
 <!--    Once i Execute the program in main class it will called the "addition" bean
-        here we inject two values with constructor injectin without knowing the datatype
+        here we inject two values with constructor injection without knowing the datatype
         It will go the AmbiguityInCalling class and check the Constructor with "String" , "String"
         because by defalut it always takes string as datatype then other.
         Naturally it will not found if found then it will inject through that costructor

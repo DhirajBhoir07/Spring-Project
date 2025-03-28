@@ -8,6 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 public class Bikes {
+
     private String bikeName;
     private String bikeNo;
 }

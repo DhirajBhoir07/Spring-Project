@@ -15,7 +15,9 @@ public class AutowireMain {
 //        System.out.println("Employee Address : "+ e2);
 
 
-        Emp e3 =context.getBean("Emp3", Emp.class);
+        Emp e3 = context.getBean("Emp3", Emp.class);
         System.out.println("Employee Address : "+ e3);
+
+//      note - by using Emp.class we don't need to explicitly type caste into it.
     }
 }
