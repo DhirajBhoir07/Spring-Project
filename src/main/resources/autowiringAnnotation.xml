@@ -21,10 +21,22 @@
         <property name="street" value="Street 22" />
     </bean>
 
+    <bean class="com.spring.autowired.annotation.Address" name="address2">
+        <property name="city" value="Pune" />
+        <property name="street" value="Street 12" />
+    </bean>
+
 
     <!--    Bean of Emp class *** autowiring using 'constructor'-->
     <bean class="com.spring.autowired.annotation.Emp" name="Emp1"   />
 
+<!--   when we use Autowired annotation then what ever the name of the Address class its doesn't matter
+        until its only one bean, But what if there are more bean then we get exception
+        'NoUniqueBeanDefinitionException == expected single matching bean but found 2: address,address2
+
+    To solve this problem we use     @Qualifier("beanName") and provide the beanName of the Address class
+    so it will inject dependency with 'beanName' on it
+         -->
 
 
 </beans>

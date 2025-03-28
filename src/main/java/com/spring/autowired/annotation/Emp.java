@@ -2,6 +2,7 @@ package com.spring.autowired.annotation;
 
 import lombok.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 @Getter
 //@Setter
@@ -18,10 +19,11 @@ public class Emp {
         Avoid field injection in production code because it makes testing harder. */
 
 
-    @Autowired
+//    @Autowired
     private Address address;
 
-//    @Autowired
+    @Autowired
+    @Qualifier("address")
     public void setAddress(Address address) {
         this.address = address;
         System.out.println("Setter injection");
@@ -33,4 +35,7 @@ public class Emp {
         System.out.println("Constructor injection");
 
     }
+
+
+
 }
