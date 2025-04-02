@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/util
+           http://www.springframework.org/schema/util/spring-util.xsd">
+
+<!--    Step 1
+            To Use the standalone we need to use Util schema   copy this
+            in the xmlns :: instead of context use util
+                   xmlns:util="http://www.springframework.org/schema/util"
+             and in the location :: instead of context use util
+                   http://www.springframework.org/schema/util
+                   http://www.springframework.org/schema/util/spring-util.xsd
+
+           use util:list tag to create standalone list
+             -->
+<!--    $$$$$$$$$$$$$$  PERSON  $$$$$$$$$$$$$$$$$-->
+    <util:list list-class="java.util.LinkedList" id="personList">
+        <value>Dhiraj</value>
+        <value>Rohit</value>
+        <value>Shivam</value>
+        <value>Abhishek</value>
+    </util:list>
+
+    <util:map map-class="java.util.LinkedHashMap" id="feesStructureMap">
+        <entry key="Python" value="5000" />
+        <entry key="Java" value="5000" />
+        <entry key="Sql" value="3000" />
+    </util:map>
+
+    <bean class="com.spring.standAloneColl.Person" id ="mapPerson">
+        <property name="names" ref="personList" />
+<!--        <property name="names">-->
+<!--            <ref bean="personList"/>-->
+<!--         </property>-->
+        <property name="feesStructure" ref="feesStructureMap" />
+    </bean>
+
+<!--    &&&&&&&&&&&&&&&&&&& PLAYERS &&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
+
+    <util:list list-class="java.util.LinkedList" id="playersList">
+        <value>player 1</value>
+        <value>player 2</value>
+        <value>player 3</value>
+    </util:list>
+
+    <util:map map-class="java.util.LinkedHashMap" id="playersMap">
+        <entry key="helmet" value="5000" />
+        <entry key="jacket" value="8000" />
+        <entry key="gloves" value="1000" />
+    </util:map>
+
+    <bean class="com.spring.standAloneColl.Players" id="playersInfo" >
+<!--        <property name="playerNames" ref="playersList" />-->
+        <property name="playerNames" >
+            <ref bean="playersList" />
+        </property>
+        <property name="accessories" ref="playersMap" />
+    </bean>
+
+</beans>
