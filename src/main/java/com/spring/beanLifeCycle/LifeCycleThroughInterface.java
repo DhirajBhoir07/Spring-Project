@@ -12,8 +12,7 @@ import org.springframework.beans.factory.InitializingBean;
 public class LifeCycleThroughInterface  implements InitializingBean, DisposableBean {
     String apple;
 
-
-//    InitializingBean interface only gives this method to implement
+//    InitializingBean interface only gives "afterPropertiesSet" method to implement
 //    It has only one method [ funtional interface ]
 //   like init() method
     @Override

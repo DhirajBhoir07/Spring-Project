@@ -10,7 +10,8 @@
            http://www.springframework.org/schema/context/spring-context.xsd">
 
 <!--    This is my first bean
-        There are 3 ways to setting values for the object -->
+        There are 3 ways to setting values for the object
+        IN class attribute provide FQCN and you can use the "name" or "id" -->
 
 
 <!--    1st way to declare by using "TAGs"-->

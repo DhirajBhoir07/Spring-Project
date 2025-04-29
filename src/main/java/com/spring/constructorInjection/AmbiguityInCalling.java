@@ -17,7 +17,7 @@ public class AmbiguityInCalling {
     }
 
 //   It will execute 1st irrespective of its datatype. beacuse xml values comes string by defalut
-//    if not metioned type explicitely in xml it will redirect it in this constructor
+//   If not metioned type explicitely in xml it will redirect it in this constructor
     public AmbiguityInCalling(String a, String b) {
         this.a = Integer.parseInt(a);
         this.b = Integer.parseInt(b);

@@ -9,7 +9,13 @@
            http://www.springframework.org/schema/context
            http://www.springframework.org/schema/context/spring-context.xsd">
 
-<!--    IF I DON'T GIVE 'bikeNo' remove it tottaly from here .. it will give me null-->
+
+    <!--    There are 3 ways we can perform total life cycle = init & destory
+            1. xml
+            2. implementing interfaces and overriding ther method [ InitializingBean, DisposableBean ]-
+            3. Using @PostConstruct @PreDestroy which are deprecated and remove from java 9 -->
+
+    <!--    IF I DON'T GIVE 'bikeNo' remove it tottaly from here .. it will give me null-->
     <bean class="com.spring.beanLifeCycle.Bikes" id="bikebean" p:bikeName="Thunder 360" p:bikeNo="MH O4 007" />
 
     <bean class="com.spring.beanLifeCycle.LifeCycle" id="lifecycle"
@@ -39,9 +45,9 @@
           id="lifecycleInterface"
                 p:apple="Apple"/>
 
-    <bean class="com.spring.beanLifeCycle.LifeCycleThroughInterface2"
-          id="lifecycleInterface2"
-          p:brand="Nothing" p:name="Nothing phone2a" p:price="23000"  />
+<!--    <bean class="com.spring.beanLifeCycle.LifeCycleThroughInterface2"-->
+<!--          id="lifecycleInterface2"-->
+<!--          p:brand="Nothing" p:name="Nothing phone2a" p:price="23000"  />-->
 
 
 

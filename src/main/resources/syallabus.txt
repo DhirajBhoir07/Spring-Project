@@ -1,0 +1,15 @@
+
+ ------------- STEP BY STEP CONCEPTS TO BE LEARN -----------
+
+ 1.  com.spring.MainApp - Student , Collection - Employee
+ 2.  com.spring.collections
+ 3.  com.spring.ref
+ 4.  com.spring.constructionInjection
+ 5.  com.spring.beanLifeCycle
+ 6.  com.spring.standAloneColl
+ 7.  com.spring.autowired
+ 8.  com.spring.stereotype
+ 9.  com.spring.scopetype
+ 10. com.spring.spel ( Normal expression , collections , Static method ,Static var, object , boolean value
+
+

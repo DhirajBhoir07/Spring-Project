@@ -9,6 +9,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Address {
+
     private String city;
     private String street;
 

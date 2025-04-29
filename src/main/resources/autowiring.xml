@@ -9,7 +9,10 @@
            http://www.springframework.org/schema/context
            http://www.springframework.org/schema/context/spring-context.xsd">
 
-<!--   Bean of Address Class-->
+<!--    In xml file we can perform autowiring by 3 ways
+        1.byName  2.byType  3.byConstructor -->
+
+<!--   Bean of Address Class , we are using this bean ref to EMP-->
     <bean class="com.spring.autowired.Address" name="address">
         <property name="city" value="Mumbai" />
         <property name="street" value="Street 22" />
@@ -28,10 +31,10 @@
                 container will check, Do we have any 'address' name bean (emp: ref of Address variable)
                 inside the configuratin file,
                 Yes we have. Then, It will inject its object inside 'Emp'
-                   * If 'Address' class bean is mismatch then it will give 'Emp(address=null)' -->
+                * If 'Address' class bean is mismatch then it will give 'Emp(address=null)' -->
 
 
-    <!--    Bean of Emp class *** autowiring using 'byName'-->
+    <!--    Bean of Emp class *** autowiring using 'byType'-->
     <bean class="com.spring.autowired.Emp" name="Emp2"  autowire="byType" />
         <!--   In 'byType' of autowiring whatever the type of object we needed.
                as we needed the 'Address' class object here so 'byType' will check any bean
@@ -39,9 +42,8 @@
                     ** But if there are more than one bean of same type then it will give
                        NoUniqueBeanDefinitionExceptionBean Exception -->
 
+    
     <!--    Bean of Emp class *** autowiring using 'constructor'-->
     <bean class="com.spring.autowired.Emp" name="Emp3"  autowire="constructor" />
-
-
 
 </beans>

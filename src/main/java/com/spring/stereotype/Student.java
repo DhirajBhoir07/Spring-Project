@@ -6,6 +6,7 @@ import lombok.ToString;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -27,6 +28,10 @@ public class Student {
 
 
 
+
+
+
+
     /* If don't provide the @Component then we will get
      NoSuchBeanDefinitionException: No bean named 'student' available*
 
@@ -41,6 +46,9 @@ public class Student {
       here we have added List type so use <util-list> mention class and id
     - add values inside
     - use id name in @value with #{ }
+
+    SpEl - Spring Expression Language - supports parssing and executing expression with the help
+            of @Value annotation
 
      */
 }

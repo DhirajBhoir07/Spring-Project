@@ -13,8 +13,8 @@
 <!--    if I want to add object of class "B" and "C" then i have to create their bean before the "A" class -->
 
 <!--    I am using p schema to give value directly in bean tag-->
-    <bean class="com.spring.ref.B" name="Bref" p:y="88"/>
-    <bean class="com.spring.ref.C" name="Cref" p:name="Mumbai" />
+    <bean class="com.spring.ref.B" id="Bref" p:y="14444" />
+    <bean class = "com.spring.ref.C" name="Cref" p:name="Mumbai" />
 
 <!--    STEP 2-->
 <!--   Declare bean for A , need to give values for the variables and if object ref is there then
@@ -22,7 +22,7 @@
 
 <!--    STEP 3  -->
 <!--    To give the reference, Use "ref" tag inside "property" tag-->
-    <bean class="com.spring.ref.A" name="Aref">
+    <bean class="com.spring.ref.A" name="Aref" >
         <property name="x" value="44"/>
         <property name="ob">
             <ref bean="Bref" />

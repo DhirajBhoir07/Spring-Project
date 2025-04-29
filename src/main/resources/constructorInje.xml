@@ -20,17 +20,6 @@
     <!-- N O T E  =   if I have 'int' followed by 'string'  as constructor and i give
                     'String' value then give 'int' then it can be understanble to spring it can adjust for some cases-->
 
-<!-- If run cause Exception (insufficient args) : Initial Practice - Injecting only with two values -->
-<!--    <bean class="com.spring.constructorInjection.Person" name="person10">-->
-<!--        <constructor-arg>-->
-<!--            <value>Rohit Sharma</value>-->
-<!--        </constructor-arg>-->
-<!--        <constructor-arg value="45" type="int"/>-->
-<!--    </bean>-->
-
-
-    <!--  if i change the value like first int then string it will work fine it can understand
-           but sometimes what happen we have more than one constructor then to remove ambiguity we write this "type"-->
 
     <!--    <bean class="com.spring.constructorInjection.Certificate" name="cer"  >-->
     <!--           <constructor-arg value="Java Certificate" />-->
@@ -44,6 +33,8 @@
             <value>Rohit Sharma</value>
         </constructor-arg>
         <constructor-arg value="45" type="int"/>
+        <!--  if I change the value like first int then string it will work fine it can understand
+          but sometimes what happen we have more than one constructor then to remove ambiguity we write this "type"-->
         <constructor-arg ref="cer"/>
         <constructor-arg>
             <list>
@@ -60,6 +51,7 @@
     <bean class="com.spring.constructorInjection.AmbiguityInCalling" name="addition">
 <!--        <constructor-arg value="12" type="int" />-->
         <constructor-arg value="12"  />
+<!--        <constructor-arg value="12" type="int" /> if don't mention 'type' attribute then (String , String) -->
         <constructor-arg value="8" index="0"/>
 
     </bean>
@@ -70,7 +62,7 @@
         because by defalut it always takes string as datatype then other.
         Naturally it will not found if found then it will inject through that costructor
         In class i have two constructor with 'double , double' and 'int , int'
-        It will check Upside down if double is first constructor then it will inject value with that
+        It will check Upside down if "double" is first constructor then it will inject value with that constructor
         To remove ambuiguity use   'type'  attribute
         Also with help of index (started form 0,1,2..)  we can mention there-->
 

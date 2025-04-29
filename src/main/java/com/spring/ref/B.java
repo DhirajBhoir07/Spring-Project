@@ -8,5 +8,6 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 public class B {
+
     private int y;
 }

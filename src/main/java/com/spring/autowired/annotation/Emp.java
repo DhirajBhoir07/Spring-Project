@@ -19,19 +19,35 @@ public class Emp {
         Avoid field injection in production code because it makes testing harder. */
 
 
+
+//    Autowiring using 'FIELD INJECTION'
 //    @Autowired
     private Address address;
+    private String empName;
 
-    @Autowired
-    @Qualifier("address")
+
+//   Autowiring using 'SETTER METHOD'
+
+//    @Autowired
+//    @Qualifier("address")
     public void setAddress(Address address) {
         this.address = address;
-        System.out.println("Setter injection");
+        System.out.println("Setter injection : Address");
     }
 
 //    @Autowired
+    public void setEmpName(String empName){
+        this.empName = empName;
+        System.out.println("Setter Injection : empName");
+    }
+
+
+
+//    Autowiring using 'CONSTRUCTOR'
+    @Autowired
     public Emp(Address address) {
         this.address = address;
+        this.empName = empName;
         System.out.println("Constructor injection");
 
     }
