@@ -11,5 +11,6 @@
  8.  com.spring.stereotype
  9.  com.spring.scopetype
  10. com.spring.spel ( Normal expression , collections , Static method ,Static var, object , boolean value
+ 11. com.springAnnotation.JavaConfig
 
 

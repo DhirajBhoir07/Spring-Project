@@ -8,14 +8,20 @@ public class ConfigMain {
         ApplicationContext context = new AnnotationConfigApplicationContext(JavaConfig.class);
 
 //      When we are using @Component on Student and not creating @Bean
-        Student s = context.getBean("student",Student.class);
-        System.out.println(s.hashCode());
-        s.study();
-
-//        --> while using @Bean annotation
-//        Student s = context.getBean("getStudent",Student.class);
+//        Student s = context.getBean("student",Student.class);
 //        System.out.println(s.hashCode());
 //        s.study();
+
+//        --> while using @Bean annotation
+        Student s = context.getBean("stud",Student.class);
+//        System.out.println(s.hashCode());
+//        s.study();
+
+
+//        --- practice
+        Teacher tech = context.getBean("getTeacher",Teacher.class);
+        tech.teachBooks();
+
     }
 
     /* When we remove xml configuration and use the pure java, that time we use "AnnotationConfigApplicationContext"

@@ -23,18 +23,47 @@ import org.springframework.context.annotation.Configuration;
     "com.example.controller"
     })
 
+    As of Java 8 and Spring 4.2, @ComponentScan is repeatable, meaning you can write:
+    meaning we can write seperate @ComponentScan
+     @ComponentScan("com.example.controller")
+     @ComponentScan("com.example.service")
+
+
 */
 
 
 
 @Configuration
-@ComponentScan(basePackages = "com.springAnnotation.javaConfig")
+//@ComponentScan(basePackages = "com.springAnnotation.javaConfig")
+//@ComponentScan
+//@ComponentScan
 public class JavaConfig {
 
+//    BEANS WITH DEFUALT NAME
+//    @Bean
+//    public Books getBooks(){
+//        return new Books();
+//    }
+//
+//    @Bean
+//    public Student getStudent(){
+//        return  new Student(getBooks() );
+//    }
+
+//    BEANS WITH USER GIVEN NAME
     @Bean
-    public Student getStudent(){
-        Student s = new Student();
-        return  s;
+    public Books getBooks() {
+        return new Books();
+    }
+
+    @Bean(name = {"std","student","stud"})
+    public Student getStudent() {
+        return new Student(getBooks());
+    }
+
+    @Bean
+    public Teacher getTeacher(){
+        return new Teacher(getBooks());
     }
 
     /*
@@ -42,7 +71,9 @@ public class JavaConfig {
       scanned the same way — same filters, same naming strategy, etc. However,
     * if you need different scanning behavior for different packages
       (e.g., apply filters only to one, use a different naming strategy for another), that’s when you use @ComponentScans.
+      --> for more information search it online - @ComponentScans.
 
+      If we are using @Bean annotation then there is no need for the @Component and @ComponentScan
 
     */
 
