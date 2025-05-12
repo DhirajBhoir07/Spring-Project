@@ -1,5 +1,7 @@
 package com.spring.constructorInjection;
 
+import java.sql.SQLOutput;
+
 public class AmbiguityInCalling {
     private int a;
     private int b;
@@ -25,6 +27,7 @@ public class AmbiguityInCalling {
     }
 
     public void sum(){
+        System.out.println("Sum method is calling...");
         System.out.println("The sum of "+a+ " and "+b+" is "+ (a+b));
     }
 

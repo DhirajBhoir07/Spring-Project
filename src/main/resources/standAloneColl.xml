@@ -23,7 +23,7 @@
            use util:list tag to create standalone list
              -->
 <!--    $$$$$$$$$$$$$$  PERSON  $$$$$$$$$$$$$$$$$-->
-    <util:list list-class="java.util.LinkedList" id="personList">
+    <util:list list-class="java.util.LinkedList" id="personList" >
         <value>Dhiraj</value>
         <value>Rohit</value>
         <value>Shivam</value>
